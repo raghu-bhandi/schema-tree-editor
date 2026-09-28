@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Schema Tree Editor: browser preview</title>
+<style>
+/* A few VS Code "Dark Modern" / "Light Modern" theme variables so the preview looks like the real thing. */
+:root { color-scheme: dark;
+  --vscode-font-family: -apple-system, "Segoe UI", system-ui, Ubuntu, sans-serif; --vscode-font-size: 13px; --vscode-editor-font-family: "SF Mono", Menlo, Consolas, "Droid Sans Mono", monospace;
+  --vscode-foreground: #CCCCCC; --vscode-descriptionForeground: #9D9D9D; --vscode-editor-background: #1F1F1F; --vscode-sideBar-background: #181818;
+  --vscode-panel-border: #2B2B2B; --vscode-list-hoverBackground: #2A2D2E; --vscode-list-activeSelectionBackground: #04395E; --vscode-list-activeSelectionForeground: #FFFFFF;
+  --vscode-list-inactiveSelectionBackground: #37373D; --vscode-focusBorder: #0078D4; --vscode-input-background: #313131; --vscode-input-foreground: #CCCCCC; --vscode-input-border: #3C3C3C;
+  --vscode-button-background: #0078D4; --vscode-button-foreground: #FFFFFF; --vscode-button-hoverBackground: #026EC1; --vscode-button-secondaryBackground: #313131; --vscode-button-secondaryForeground: #CCCCCC; --vscode-button-secondaryHoverBackground: #3C3C3C;
+  --vscode-errorForeground: #F85149; --vscode-editor-findMatchHighlightBackground: rgba(234,92,0,.33); --vscode-textLink-foreground: #4daafc; --vscode-badge-background: #616161; --vscode-badge-foreground: #F8F8F8;
+  --vscode-editorWidget-background: #202020; --vscode-editorWidget-border: #313131; --vscode-dropdown-background: #313131; --vscode-dropdown-foreground: #CCCCCC; --vscode-dropdown-border: #3C3C3C;
+  --vscode-quickInputList-focusBackground: #04395E; --vscode-toolbar-hoverBackground: rgba(90,93,94,.31); --vscode-inputValidation-warningBackground: #352A05; --vscode-inputValidation-warningBorder: #B89500;
+  --vscode-notifications-background: #1F1F1F; --vscode-notifications-border: #2B2B2B; --vscode-widget-shadow: rgba(0,0,0,.36); --vscode-list-dropBackground: #383B3D;
+}
+@media (prefers-color-scheme: light) { :root { color-scheme: light;
+  --vscode-foreground: #3B3B3B; --vscode-descriptionForeground: #717171; --vscode-editor-background: #FFFFFF; --vscode-sideBar-background: #F8F8F8;
+  --vscode-panel-border: #E5E5E5; --vscode-list-hoverBackground: #F2F2F2; --vscode-list-activeSelectionBackground: #E8E8E8; --vscode-list-activeSelectionForeground: #000000;
+  --vscode-list-inactiveSelectionBackground: #E4E6F1; --vscode-input-background: #FFFFFF; --vscode-input-foreground: #3B3B3B; --vscode-input-border: #CECECE;
+  --vscode-button-secondaryBackground: #E5E5E5; --vscode-button-secondaryForeground: #3B3B3B; --vscode-button-secondaryHoverBackground: #CCCCCC; --vscode-textLink-foreground: #005FB8;
+  --vscode-badge-background: #CCCCCC; --vscode-badge-foreground: #3B3B3B; --vscode-editorWidget-background: #F8F8F8; --vscode-editorWidget-border: #E5E5E5;
+  --vscode-dropdown-background: #FFFFFF; --vscode-dropdown-foreground: #3B3B3B; --vscode-dropdown-border: #CECECE; --vscode-quickInputList-focusBackground: #E8E8E8;
+  --vscode-inputValidation-warningBackground: #FFF4CE; --vscode-inputValidation-warningBorder: #B89500; --vscode-notifications-background: #FFFFFF; --vscode-notifications-border: #E5E5E5; --vscode-list-dropBackground: #D6EBFF; --vscode-errorForeground: #D13438;
+} }
+:root { box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body { display: grid; grid-template-columns: 1fr minmax(18rem, 34%); grid-template-rows: 100%; height: 100%; }
+tree-editor { height: 100% !important; min-width: 0; }
+.textpane { display: grid; grid-template-rows: auto 1fr; border-left: 1px solid var(--vscode-panel-border); min-height: 0; background: var(--vscode-editor-background); color: var(--vscode-foreground); font: 13px var(--vscode-font-family); }
+.textpane header { display: flex; gap: 8px; align-items: center; padding: 6px 10px; border-bottom: 1px solid var(--vscode-panel-border); }
+.textpane header span { color: var(--vscode-descriptionForeground); font-size: 11.5px; margin-left: auto; }
+.textpane select { background: var(--vscode-dropdown-background); color: var(--vscode-dropdown-foreground); border: 1px solid var(--vscode-dropdown-border); padding: 2px 4px; max-width: 70%; }
+#json { width: 100%; height: 100%; border: 0; resize: none; padding: 8px 10px; background: transparent; color: inherit; font: 12.5px/17.5px var(--vscode-editor-font-family); white-space: pre; overflow: auto; outline: none; tab-size: 2; }
+@media (max-width: 800px) { body { grid-template-columns: 1fr; grid-template-rows: 62% 38%; } .textpane { border-left: 0; border-top: 1px solid var(--vscode-panel-border); } }
+/*__CSS__*/
+</style></head>
+<body>
+<tree-editor></tree-editor>
+<section class="textpane"><header><select id="file" aria-label="File"></select><span>JSON text (stands in for the VS Code editor)</span></header><textarea id="json" spellcheck="false" aria-label="JSON text"></textarea></section>
+<script>/*__JS__*/</script>
+</body></html>
