@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Feature flags",
+  "description": "Hand-written schema. Uses custom keys: key / label / kind / items.",
+  "$ref": "#/$defs/flagSet",
+  "$defs": {
+    "key": { "type": "string", "pattern": "^[a-z0-9_.-]+$", "description": "Flag or group key used in code." },
+    "flagSet": {
+      "title": "Flag set", "treeIcon": "settings", "treeSubtitle": "environment",
+      "type": "object", "additionalProperties": false,
+      "required": ["key", "label", "kind", "environment", "items"],
+      "properties": {
+        "key": { "$ref": "#/$defs/key" },
+        "label": { "type": "string", "title": "Label", "minLength": 1 },
+        "kind": { "const": "flagSet" },
+        "environment": { "type": "string", "title": "Environment", "enum": ["development", "staging", "production"] },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/group" } }
+      }
+    },
+    "group": {
+      "title": "Group", "treeIcon": "folder-library",
+      "type": "object", "additionalProperties": false,
+      "required": ["key", "label", "kind", "items"],
+      "properties": {
+        "key": { "$ref": "#/$defs/key" },
+        "label": { "type": "string", "title": "Label", "minLength": 1 },
+        "kind": { "const": "group" },
+        "owner": { "type": "string", "title": "Owning team" },
+        "items": { "type": "array", "items": { "oneOf": [{ "$ref": "#/$defs/group" }, { "$ref": "#/$defs/flag" }] } }
+      }
+    },
+    "flag": {
+      "title": "Flag", "treeIcon": "symbol-boolean", "treeSubtitle": "default",
+      "type": "object", "additionalProperties": false,
+      "required": ["key", "label", "kind", "default"],
+      "properties": {
+        "key": { "$ref": "#/$defs/key" },
+        "label": { "type": "string", "title": "Label", "minLength": 1 },
+        "kind": { "const": "flag" },
+        "default": { "type": "boolean", "title": "Default value" },
+        "expires": { "type": "string", "format": "date", "title": "Remove after" },
+        "description": { "type": "string", "title": "Description", "format": "textarea" },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/rule" } }
+      }
+    },
+    "rule": {
+      "title": "Rule", "treeIcon": "filter", "treeSubtitle": "rolloutPct",
+      "type": "object", "additionalProperties": false,
+      "required": ["key", "label", "kind", "when", "value"],
+      "properties": {
+        "key": { "$ref": "#/$defs/key" },
+        "label": { "type": "string", "title": "Label", "minLength": 1 },
+        "kind": { "const": "rule" },
+        "when": { "type": "string", "title": "Condition", "description": "e.g. country == \"IN\" && plan == \"pro\"" },
+        "value": { "type": "boolean", "title": "Value when matched" },
+        "rolloutPct": { "type": "integer", "title": "Rollout (%)", "minimum": 0, "maximum": 100 }
+      }
+    }
+  }
+}

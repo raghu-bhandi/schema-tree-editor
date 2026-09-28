@@ -1,0 +1,186 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/SiteNode",
+  "definitions": {
+    "SiteNode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Stable id. Don't reuse it.",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "name": {
+          "type": "string",
+          "title": "Title",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "const": "site"
+        },
+        "baseUrl": {
+          "type": "string",
+          "title": "Base URL",
+          "format": "uri"
+        },
+        "version": {
+          "type": "string",
+          "title": "Docs version"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SectionNode"
+          }
+        }
+      },
+      "required": [
+        "baseUrl",
+        "children",
+        "id",
+        "name",
+        "type",
+        "version"
+      ],
+      "additionalProperties": false,
+      "title": "Site",
+      "treeIcon": "globe",
+      "treeSubtitle": "version"
+    },
+    "SectionNode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Stable id. Don't reuse it.",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "name": {
+          "type": "string",
+          "title": "Title",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "const": "section"
+        },
+        "collapsed": {
+          "type": "boolean",
+          "title": "Start collapsed"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/SectionNode"
+              },
+              {
+                "$ref": "#/definitions/PageNode"
+              },
+              {
+                "$ref": "#/definitions/LinkNode"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "children",
+        "id",
+        "name",
+        "type"
+      ],
+      "additionalProperties": false,
+      "title": "Section",
+      "treeIcon": "folder"
+    },
+    "PageNode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Stable id. Don't reuse it.",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "name": {
+          "type": "string",
+          "title": "Title",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "const": "page"
+        },
+        "file": {
+          "type": "string",
+          "title": "Source file"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "review",
+            "published"
+          ],
+          "title": "Status"
+        },
+        "summary": {
+          "type": "string",
+          "title": "Summary",
+          "format": "textarea"
+        }
+      },
+      "required": [
+        "file",
+        "id",
+        "name",
+        "status",
+        "type"
+      ],
+      "additionalProperties": false,
+      "title": "Page",
+      "treeIcon": "file",
+      "treeSubtitle": "status"
+    },
+    "LinkNode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Stable id. Don't reuse it.",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "name": {
+          "type": "string",
+          "title": "Title",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "const": "link"
+        },
+        "url": {
+          "type": "string",
+          "title": "URL",
+          "format": "uri"
+        },
+        "newTab": {
+          "type": "boolean",
+          "title": "Open in new tab"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type",
+        "url"
+      ],
+      "additionalProperties": false,
+      "title": "Link",
+      "treeIcon": "link-external"
+    }
+  },
+  "title": "Docs navigation"
+}

@@ -1,0 +1,797 @@
+{
+  "id": "docs",
+  "type": "site",
+  "name": "Acme Docs",
+  "baseUrl": "https://docs.example.com",
+  "version": "4.2",
+  "children": [
+    {
+      "id": "s-getting-started",
+      "type": "section",
+      "name": "Getting started",
+      "children": [
+        {
+          "id": "install",
+          "type": "page",
+          "name": "Install",
+          "file": "getting-started/install.md",
+          "status": "published"
+        },
+        {
+          "id": "quick-start",
+          "type": "page",
+          "name": "Quick start",
+          "file": "getting-started/quick-start.md",
+          "status": "published"
+        },
+        {
+          "id": "project-layout",
+          "type": "page",
+          "name": "Project layout",
+          "file": "getting-started/project-layout.md",
+          "status": "published"
+        },
+        {
+          "id": "configuration",
+          "type": "page",
+          "name": "Configuration",
+          "file": "getting-started/configuration.md",
+          "status": "review"
+        },
+        {
+          "id": "upgrading",
+          "type": "page",
+          "name": "Upgrading",
+          "file": "getting-started/upgrading.md",
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": "s-guides",
+      "type": "section",
+      "name": "Guides",
+      "children": [
+        {
+          "id": "s-authentication",
+          "type": "section",
+          "name": "Authentication",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "authentication-overview",
+              "type": "page",
+              "name": "Authentication: overview",
+              "file": "guides/authentication/overview.md",
+              "status": "published"
+            },
+            {
+              "id": "authentication-examples",
+              "type": "page",
+              "name": "Authentication: examples",
+              "file": "guides/authentication/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "authentication-options",
+              "type": "page",
+              "name": "Authentication: options",
+              "file": "guides/authentication/options.md",
+              "status": "published"
+            },
+            {
+              "id": "authentication-limits",
+              "type": "page",
+              "name": "Authentication: limits",
+              "file": "guides/authentication/limits.md",
+              "status": "review"
+            }
+          ]
+        },
+        {
+          "id": "s-routing",
+          "type": "section",
+          "name": "Routing",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "routing-overview",
+              "type": "page",
+              "name": "Routing: overview",
+              "file": "guides/routing/overview.md",
+              "status": "draft"
+            },
+            {
+              "id": "routing-examples",
+              "type": "page",
+              "name": "Routing: examples",
+              "file": "guides/routing/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "routing-options",
+              "type": "page",
+              "name": "Routing: options",
+              "file": "guides/routing/options.md",
+              "status": "published"
+            },
+            {
+              "id": "routing-limits",
+              "type": "page",
+              "name": "Routing: limits",
+              "file": "guides/routing/limits.md",
+              "status": "published"
+            }
+          ]
+        },
+        {
+          "id": "s-data-fetching",
+          "type": "section",
+          "name": "Data fetching",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "data-fetching-overview",
+              "type": "page",
+              "name": "Data fetching: overview",
+              "file": "guides/data-fetching/overview.md",
+              "status": "review"
+            },
+            {
+              "id": "data-fetching-examples",
+              "type": "page",
+              "name": "Data fetching: examples",
+              "file": "guides/data-fetching/examples.md",
+              "status": "draft"
+            },
+            {
+              "id": "data-fetching-options",
+              "type": "page",
+              "name": "Data fetching: options",
+              "file": "guides/data-fetching/options.md",
+              "status": "published"
+            },
+            {
+              "id": "data-fetching-limits",
+              "type": "page",
+              "name": "Data fetching: limits",
+              "file": "guides/data-fetching/limits.md",
+              "status": "published"
+            }
+          ]
+        },
+        {
+          "id": "s-caching",
+          "type": "section",
+          "name": "Caching",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "caching-overview",
+              "type": "page",
+              "name": "Caching: overview",
+              "file": "guides/caching/overview.md",
+              "status": "published"
+            },
+            {
+              "id": "caching-examples",
+              "type": "page",
+              "name": "Caching: examples",
+              "file": "guides/caching/examples.md",
+              "status": "review"
+            },
+            {
+              "id": "caching-options",
+              "type": "page",
+              "name": "Caching: options",
+              "file": "guides/caching/options.md",
+              "status": "draft"
+            },
+            {
+              "id": "caching-limits",
+              "type": "page",
+              "name": "Caching: limits",
+              "file": "guides/caching/limits.md",
+              "status": "published"
+            }
+          ]
+        },
+        {
+          "id": "s-forms",
+          "type": "section",
+          "name": "Forms",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "forms-overview",
+              "type": "page",
+              "name": "Forms: overview",
+              "file": "guides/forms/overview.md",
+              "status": "published"
+            },
+            {
+              "id": "forms-examples",
+              "type": "page",
+              "name": "Forms: examples",
+              "file": "guides/forms/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "forms-options",
+              "type": "page",
+              "name": "Forms: options",
+              "file": "guides/forms/options.md",
+              "status": "review"
+            },
+            {
+              "id": "forms-limits",
+              "type": "page",
+              "name": "Forms: limits",
+              "file": "guides/forms/limits.md",
+              "status": "draft"
+            }
+          ]
+        },
+        {
+          "id": "s-file-uploads",
+          "type": "section",
+          "name": "File uploads",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "file-uploads-overview",
+              "type": "page",
+              "name": "File uploads: overview",
+              "file": "guides/file-uploads/overview.md",
+              "status": "published"
+            },
+            {
+              "id": "file-uploads-examples",
+              "type": "page",
+              "name": "File uploads: examples",
+              "file": "guides/file-uploads/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "file-uploads-options",
+              "type": "page",
+              "name": "File uploads: options",
+              "file": "guides/file-uploads/options.md",
+              "status": "published"
+            },
+            {
+              "id": "file-uploads-limits",
+              "type": "page",
+              "name": "File uploads: limits",
+              "file": "guides/file-uploads/limits.md",
+              "status": "review"
+            }
+          ]
+        },
+        {
+          "id": "s-background-jobs",
+          "type": "section",
+          "name": "Background jobs",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "background-jobs-overview",
+              "type": "page",
+              "name": "Background jobs: overview",
+              "file": "guides/background-jobs/overview.md",
+              "status": "draft"
+            },
+            {
+              "id": "background-jobs-examples",
+              "type": "page",
+              "name": "Background jobs: examples",
+              "file": "guides/background-jobs/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "background-jobs-options",
+              "type": "page",
+              "name": "Background jobs: options",
+              "file": "guides/background-jobs/options.md",
+              "status": "published"
+            },
+            {
+              "id": "background-jobs-limits",
+              "type": "page",
+              "name": "Background jobs: limits",
+              "file": "guides/background-jobs/limits.md",
+              "status": "published"
+            }
+          ]
+        },
+        {
+          "id": "s-deploying",
+          "type": "section",
+          "name": "Deploying",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "deploying-overview",
+              "type": "page",
+              "name": "Deploying: overview",
+              "file": "guides/deploying/overview.md",
+              "status": "review"
+            },
+            {
+              "id": "deploying-examples",
+              "type": "page",
+              "name": "Deploying: examples",
+              "file": "guides/deploying/examples.md",
+              "status": "draft"
+            },
+            {
+              "id": "deploying-options",
+              "type": "page",
+              "name": "Deploying: options",
+              "file": "guides/deploying/options.md",
+              "status": "published"
+            },
+            {
+              "id": "deploying-limits",
+              "type": "page",
+              "name": "Deploying: limits",
+              "file": "guides/deploying/limits.md",
+              "status": "published"
+            }
+          ]
+        },
+        {
+          "id": "s-monitoring",
+          "type": "section",
+          "name": "Monitoring",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "monitoring-overview",
+              "type": "page",
+              "name": "Monitoring: overview",
+              "file": "guides/monitoring/overview.md",
+              "status": "published"
+            },
+            {
+              "id": "monitoring-examples",
+              "type": "page",
+              "name": "Monitoring: examples",
+              "file": "guides/monitoring/examples.md",
+              "status": "review"
+            },
+            {
+              "id": "monitoring-options",
+              "type": "page",
+              "name": "Monitoring: options",
+              "file": "guides/monitoring/options.md",
+              "status": "draft"
+            },
+            {
+              "id": "monitoring-limits",
+              "type": "page",
+              "name": "Monitoring: limits",
+              "file": "guides/monitoring/limits.md",
+              "status": "published"
+            }
+          ]
+        },
+        {
+          "id": "s-testing",
+          "type": "section",
+          "name": "Testing",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "testing-overview",
+              "type": "page",
+              "name": "Testing: overview",
+              "file": "guides/testing/overview.md",
+              "status": "published"
+            },
+            {
+              "id": "testing-examples",
+              "type": "page",
+              "name": "Testing: examples",
+              "file": "guides/testing/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "testing-options",
+              "type": "page",
+              "name": "Testing: options",
+              "file": "guides/testing/options.md",
+              "status": "review"
+            },
+            {
+              "id": "testing-limits",
+              "type": "page",
+              "name": "Testing: limits",
+              "file": "guides/testing/limits.md",
+              "status": "draft"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-api-reference",
+      "type": "section",
+      "name": "API reference",
+      "children": [
+        {
+          "id": "s-client",
+          "type": "section",
+          "name": "Client",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "client-overview",
+              "type": "page",
+              "name": "Client: overview",
+              "file": "api-reference/client/overview.md",
+              "status": "published"
+            },
+            {
+              "id": "client-examples",
+              "type": "page",
+              "name": "Client: examples",
+              "file": "api-reference/client/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "client-options",
+              "type": "page",
+              "name": "Client: options",
+              "file": "api-reference/client/options.md",
+              "status": "published"
+            },
+            {
+              "id": "client-limits",
+              "type": "page",
+              "name": "Client: limits",
+              "file": "api-reference/client/limits.md",
+              "status": "review"
+            }
+          ]
+        },
+        {
+          "id": "s-server",
+          "type": "section",
+          "name": "Server",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "server-overview",
+              "type": "page",
+              "name": "Server: overview",
+              "file": "api-reference/server/overview.md",
+              "status": "draft"
+            },
+            {
+              "id": "server-examples",
+              "type": "page",
+              "name": "Server: examples",
+              "file": "api-reference/server/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "server-options",
+              "type": "page",
+              "name": "Server: options",
+              "file": "api-reference/server/options.md",
+              "status": "published"
+            },
+            {
+              "id": "server-limits",
+              "type": "page",
+              "name": "Server: limits",
+              "file": "api-reference/server/limits.md",
+              "status": "published"
+            }
+          ]
+        },
+        {
+          "id": "s-router",
+          "type": "section",
+          "name": "Router",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "router-overview",
+              "type": "page",
+              "name": "Router: overview",
+              "file": "api-reference/router/overview.md",
+              "status": "review"
+            },
+            {
+              "id": "router-examples",
+              "type": "page",
+              "name": "Router: examples",
+              "file": "api-reference/router/examples.md",
+              "status": "draft"
+            },
+            {
+              "id": "router-options",
+              "type": "page",
+              "name": "Router: options",
+              "file": "api-reference/router/options.md",
+              "status": "published"
+            },
+            {
+              "id": "router-limits",
+              "type": "page",
+              "name": "Router: limits",
+              "file": "api-reference/router/limits.md",
+              "status": "published"
+            }
+          ]
+        },
+        {
+          "id": "s-store",
+          "type": "section",
+          "name": "Store",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "store-overview",
+              "type": "page",
+              "name": "Store: overview",
+              "file": "api-reference/store/overview.md",
+              "status": "published"
+            },
+            {
+              "id": "store-examples",
+              "type": "page",
+              "name": "Store: examples",
+              "file": "api-reference/store/examples.md",
+              "status": "review"
+            },
+            {
+              "id": "store-options",
+              "type": "page",
+              "name": "Store: options",
+              "file": "api-reference/store/options.md",
+              "status": "draft"
+            },
+            {
+              "id": "store-limits",
+              "type": "page",
+              "name": "Store: limits",
+              "file": "api-reference/store/limits.md",
+              "status": "published"
+            }
+          ]
+        },
+        {
+          "id": "s-events",
+          "type": "section",
+          "name": "Events",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "events-overview",
+              "type": "page",
+              "name": "Events: overview",
+              "file": "api-reference/events/overview.md",
+              "status": "published"
+            },
+            {
+              "id": "events-examples",
+              "type": "page",
+              "name": "Events: examples",
+              "file": "api-reference/events/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "events-options",
+              "type": "page",
+              "name": "Events: options",
+              "file": "api-reference/events/options.md",
+              "status": "review"
+            },
+            {
+              "id": "events-limits",
+              "type": "page",
+              "name": "Events: limits",
+              "file": "api-reference/events/limits.md",
+              "status": "draft"
+            }
+          ]
+        },
+        {
+          "id": "s-errors",
+          "type": "section",
+          "name": "Errors",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "errors-overview",
+              "type": "page",
+              "name": "Errors: overview",
+              "file": "api-reference/errors/overview.md",
+              "status": "published"
+            },
+            {
+              "id": "errors-examples",
+              "type": "page",
+              "name": "Errors: examples",
+              "file": "api-reference/errors/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "errors-options",
+              "type": "page",
+              "name": "Errors: options",
+              "file": "api-reference/errors/options.md",
+              "status": "published"
+            },
+            {
+              "id": "errors-limits",
+              "type": "page",
+              "name": "Errors: limits",
+              "file": "api-reference/errors/limits.md",
+              "status": "review"
+            }
+          ]
+        },
+        {
+          "id": "s-types",
+          "type": "section",
+          "name": "Types",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "types-overview",
+              "type": "page",
+              "name": "Types: overview",
+              "file": "api-reference/types/overview.md",
+              "status": "draft"
+            },
+            {
+              "id": "types-examples",
+              "type": "page",
+              "name": "Types: examples",
+              "file": "api-reference/types/examples.md",
+              "status": "published"
+            },
+            {
+              "id": "types-options",
+              "type": "page",
+              "name": "Types: options",
+              "file": "api-reference/types/options.md",
+              "status": "published"
+            },
+            {
+              "id": "types-limits",
+              "type": "page",
+              "name": "Types: limits",
+              "file": "api-reference/types/limits.md",
+              "status": "published"
+            }
+          ]
+        },
+        {
+          "id": "s-cli",
+          "type": "section",
+          "name": "CLI",
+          "collapsed": true,
+          "children": [
+            {
+              "id": "cli-overview",
+              "type": "page",
+              "name": "CLI: overview",
+              "file": "api-reference/cli/overview.md",
+              "status": "review"
+            },
+            {
+              "id": "cli-examples",
+              "type": "page",
+              "name": "CLI: examples",
+              "file": "api-reference/cli/examples.md",
+              "status": "draft"
+            },
+            {
+              "id": "cli-options",
+              "type": "page",
+              "name": "CLI: options",
+              "file": "api-reference/cli/options.md",
+              "status": "published"
+            },
+            {
+              "id": "cli-limits",
+              "type": "page",
+              "name": "CLI: limits",
+              "file": "api-reference/cli/limits.md",
+              "status": "published"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-integrations",
+      "type": "section",
+      "name": "Integrations",
+      "children": [
+        {
+          "id": "postgresql",
+          "type": "page",
+          "name": "PostgreSQL",
+          "file": "integrations/postgresql.md",
+          "status": "published"
+        },
+        {
+          "id": "redis",
+          "type": "page",
+          "name": "Redis",
+          "file": "integrations/redis.md",
+          "status": "review"
+        },
+        {
+          "id": "s3",
+          "type": "page",
+          "name": "S3",
+          "file": "integrations/s3.md",
+          "status": "draft"
+        },
+        {
+          "id": "stripe",
+          "type": "page",
+          "name": "Stripe",
+          "file": "integrations/stripe.md",
+          "status": "published"
+        },
+        {
+          "id": "slack",
+          "type": "page",
+          "name": "Slack",
+          "file": "integrations/slack.md",
+          "status": "published"
+        },
+        {
+          "id": "github",
+          "type": "page",
+          "name": "GitHub",
+          "file": "integrations/github.md",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "s-help",
+      "type": "section",
+      "name": "Help",
+      "children": [
+        {
+          "id": "faq",
+          "type": "page",
+          "name": "FAQ",
+          "file": "help/faq.md",
+          "status": "review"
+        },
+        {
+          "id": "troubleshooting",
+          "type": "page",
+          "name": "Troubleshooting",
+          "file": "help/troubleshooting.md",
+          "status": "draft"
+        },
+        {
+          "id": "changelog",
+          "type": "page",
+          "name": "Changelog",
+          "file": "help/changelog.md",
+          "status": "published"
+        },
+        {
+          "id": "community",
+          "type": "link",
+          "name": "Community forum",
+          "url": "https://forum.example.com",
+          "newTab": true
+        }
+      ]
+    }
+  ]
+}

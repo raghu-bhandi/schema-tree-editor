@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema-trees.schema.json",
+  "schemaDir": "schemas",
+  "trees": [
+    {
+      "name": "docs-nav",
+      "label": "Docs navigation",
+      "typesFile": "types/docs-nav.ts",
+      "rootType": "SiteNode",
+      "files": ["data/docs-nav/*.json"]
+    },
+    {
+      "name": "flags",
+      "label": "Feature flags",
+      "schema": "schemas/flags.schema.json",
+      "keys": { "id": "key", "name": "label", "type": "kind", "children": "items" },
+      "files": ["data/flags/*.json"]
+    }
+  ]
+}

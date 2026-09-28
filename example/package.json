@@ -1,0 +1,10 @@
+{
+  "name": "schema-tree-editor-example",
+  "private": true,
+  "description": "Example workspace for Schema Tree Editor. Open this folder in VS Code.",
+  "scripts": {
+    "gen:schemas": "node ../tools/gen-schemas.mjs",
+    "check:schemas": "node ../tools/gen-schemas.mjs --check"
+  },
+  "devDependencies": { "ts-json-schema-generator": "^2.4.0" }
+}

@@ -1,0 +1,141 @@
+{
+  "key": "prod",
+  "label": "Production flags",
+  "kind": "flagSet",
+  "environment": "production",
+  "items": [
+    {
+      "key": "checkout",
+      "label": "Checkout",
+      "kind": "group",
+      "owner": "payments",
+      "items": [
+        {
+          "key": "checkout.new_flow",
+          "label": "New checkout flow",
+          "kind": "flag",
+          "default": false,
+          "expires": "2026-12-31",
+          "items": [
+            {
+              "key": "checkout.new_flow.india",
+              "label": "India pilot",
+              "kind": "rule",
+              "when": "country == \"IN\"",
+              "value": true,
+              "rolloutPct": 25
+            },
+            {
+              "key": "checkout.new_flow.staff",
+              "label": "Staff",
+              "kind": "rule",
+              "when": "email.endsWith(\"@example.com\")",
+              "value": true
+            }
+          ]
+        },
+        {
+          "key": "checkout.upi_autopay",
+          "label": "UPI Autopay",
+          "kind": "flag",
+          "default": true
+        },
+        {
+          "key": "checkout.save_cards",
+          "label": "Save cards",
+          "kind": "flag",
+          "default": true,
+          "items": [
+            {
+              "key": "checkout.save_cards.eu",
+              "label": "Off in EU",
+              "kind": "rule",
+              "when": "region == \"EU\"",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "search",
+      "label": "Search",
+      "kind": "group",
+      "owner": "discovery",
+      "items": [
+        {
+          "key": "search.semantic",
+          "label": "Semantic search",
+          "kind": "flag",
+          "default": false,
+          "description": "Vector search behind the classic results.",
+          "items": [
+            {
+              "key": "search.semantic.beta",
+              "label": "Beta users",
+              "kind": "rule",
+              "when": "user.beta",
+              "value": true,
+              "rolloutPct": 50
+            }
+          ]
+        },
+        {
+          "key": "search.typo_tolerance",
+          "label": "Typo tolerance",
+          "kind": "flag",
+          "default": true
+        },
+        {
+          "key": "search.experiments",
+          "label": "Experiments",
+          "kind": "group",
+          "items": [
+            {
+              "key": "search.exp.rerank",
+              "label": "Re-ranking v2",
+              "kind": "flag",
+              "default": false
+            },
+            {
+              "key": "search.exp.snippets",
+              "label": "Rich snippets",
+              "kind": "flag",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ui",
+      "label": "UI",
+      "kind": "group",
+      "owner": "web",
+      "items": [
+        {
+          "key": "ui.dark_mode_default",
+          "label": "Dark mode by default",
+          "kind": "flag",
+          "default": false
+        },
+        {
+          "key": "ui.new_nav",
+          "label": "New navigation",
+          "kind": "flag",
+          "default": false,
+          "items": [
+            {
+              "key": "ui.new_nav.pro",
+              "label": "Pro plan",
+              "kind": "rule",
+              "when": "plan == \"pro\"",
+              "value": true,
+              "rolloutPct": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

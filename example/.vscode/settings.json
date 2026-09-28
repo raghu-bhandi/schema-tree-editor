@@ -1,0 +1,16 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/data/docs-nav/*.json"
+      ],
+      "url": "./schemas/docs-nav.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/data/flags/*.json"
+      ],
+      "url": "./schemas/flags.schema.json"
+    }
+  ]
+}
