@@ -1,0 +1,20 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Latest VS Code and the oldest one package.json supports (engines.vscode).
+        vscode: [stable, 1.90.0]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - run: cd example && node ../tools/gen-schemas.mjs --check
+      - run: xvfb-run -a npm test
+        env: { VSCODE_TEST_VERSION: "${{ matrix.vscode }}" }
