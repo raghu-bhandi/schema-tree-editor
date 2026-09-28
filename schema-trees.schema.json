@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema Tree Editor config (schema-trees.json)",
+  "type": "object",
+  "required": ["trees"],
+  "additionalProperties": false,
+  "definitions": {
+    "keys": {
+      "type": "object",
+      "description": "Property names that give an object its tree meaning.",
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "default": "id", "description": "Unique id of a node." },
+        "name": { "type": "string", "default": "name", "description": "Display name (optional per type; the id is shown if absent)." },
+        "type": { "type": "string", "default": "type", "description": "Discriminator holding a constant per node type." },
+        "children": { "type": "string", "default": "children", "description": "Array of nested nodes." }
+      }
+    }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaDir": { "type": "string", "default": "schemas", "description": "Where generated schemas are written, relative to this file." },
+    "keys": { "$ref": "#/definitions/keys", "description": "Default key names for all trees." },
+    "trees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "files"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Generated schema is <schemaDir>/<name>.schema.json" },
+          "label": { "type": "string", "description": "Shown in the editor." },
+          "files": { "type": "array", "items": { "type": "string" }, "minItems": 1, "description": "Globs of this tree's JSON files, relative to this file." },
+          "typesFile": { "type": "string", "description": "TypeScript file exporting the node interfaces." },
+          "rootType": { "type": "string", "description": "Interface of each file's root node." },
+          "schema": { "type": "string", "description": "Use this hand-written JSON Schema instead of generating one." },
+          "keys": { "$ref": "#/definitions/keys" }
+        },
+        "oneOf": [{ "required": ["schema"] }, { "required": ["typesFile", "rootType"] }]
+      }
+    }
+  }
+}

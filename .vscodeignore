@@ -1,0 +1,12 @@
+**
+!dist/extension.js
+!dist/webview.js
+!dist/webview.css
+!dist/codicon.ttf
+!dist/gen-schemas.mjs
+!images/icon.png
+!schema-trees.schema.json
+!package.json
+!README.md
+!CHANGELOG.md
+!LICENSE

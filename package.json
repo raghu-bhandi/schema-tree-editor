@@ -1,0 +1,159 @@
+{
+  "name": "schema-tree-editor",
+  "displayName": "Schema Tree Editor",
+  "description": "Edit tree-shaped JSON (menus, rules, configs, content trees) as a tree with forms, driven by your TypeScript types or a JSON Schema. Stays in sync with the JSON text.",
+  "version": "0.1.0",
+  "publisher": "raghu-bhandi",
+  "license": "MIT",
+  "author": {
+    "name": "RG Bhandi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raghu-bhandi/schema-tree-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raghu-bhandi/schema-tree-editor/issues"
+  },
+  "homepage": "https://github.com/raghu-bhandi/schema-tree-editor#readme",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#12343B",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "json",
+    "tree",
+    "json schema",
+    "typescript",
+    "editor",
+    "custom editor",
+    "config",
+    "form"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "workspaceContains:**/schema-trees.json"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "Generating schemas from TypeScript runs a task, which needs a trusted workspace. Viewing and editing work everywhere."
+    }
+  },
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "schemaTree.editor",
+        "displayName": "Schema Tree",
+        "selector": [
+          {
+            "filenamePattern": "*.json"
+          }
+        ],
+        "priority": "option"
+      }
+    ],
+    "commands": [
+      {
+        "command": "schemaTree.open",
+        "title": "Open as Tree",
+        "category": "Schema Tree",
+        "icon": "$(list-tree)"
+      },
+      {
+        "command": "schemaTree.openJson",
+        "title": "Open JSON Beside",
+        "category": "Schema Tree",
+        "icon": "$(json)"
+      },
+      {
+        "command": "schemaTree.generateSchemas",
+        "title": "Generate Schemas from TypeScript",
+        "category": "Schema Tree",
+        "enablement": "isWorkspaceTrusted"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "schemaTree.open",
+          "when": "resourceExtname == .json && activeCustomEditorId != schemaTree.editor",
+          "group": "navigation"
+        },
+        {
+          "command": "schemaTree.openJson",
+          "when": "activeCustomEditorId == schemaTree.editor",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "schemaTree.open",
+          "when": "resourceExtname == .json",
+          "group": "navigation@9"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "schemaTree.openJson",
+          "when": "activeCustomEditorId == schemaTree.editor"
+        }
+      ]
+    },
+    "jsonValidation": [
+      {
+        "fileMatch": "schema-trees.json",
+        "url": "./schema-trees.schema.json"
+      }
+    ],
+    "taskDefinitions": [
+      {
+        "type": "schemaTree",
+        "properties": {
+          "config": {
+            "type": "string",
+            "description": "Path of the schema-trees.json"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "preview": "node dev/build-harness.mjs",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "node test/run.mjs unit",
+    "test:integration": "npm run build && node test/run.mjs integration",
+    "example:schemas": "cd example && node ../tools/gen-schemas.mjs",
+    "vscode:prepublish": "npm run typecheck && npm run build",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish --no-dependencies",
+    "publish:ovsx": "ovsx publish --no-dependencies"
+  },
+  "dependencies": {
+    "@json-editor/json-editor": "2.17.2",
+    "@vscode/codicons": "0.0.46-24",
+    "jsonc-parser": "^3.3.1",
+    "wunderbaum": "0.14.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "@types/vscode": "1.90.0",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.28.2",
+    "ovsx": "^0.10.0",
+    "ts-json-schema-generator": "^2.4.0",
+    "typescript": "^7.0.2"
+  }
+}
